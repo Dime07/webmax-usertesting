@@ -10,6 +10,9 @@ module.exports = {
         },
         blue: {
           dark : "#150D47"
+        },
+        purple: {
+          light: "#FA3ECD"
         }
       }
     },

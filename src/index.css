@@ -17,6 +17,7 @@
   top: 25px;
 }
 
+
 /* ---- Hero Section ------ */
 .hero{
   padding: 0px 80px 0px 80px;
@@ -37,6 +38,68 @@
   font-weight: 600;
 }
 
+/* -----Fitur Section------ */
+.fitur{
+  padding: 0px 80px 0px 80px;
+}
+
+.fitur .fitur-icon{
+  border-radius: 10px;
+  padding: 8px;
+  display: inline;
+  width: fit-content;
+}
+
+/* -----Testimoni section------ */
+.testimoni{
+  padding: 20px 80px 20px 80px;
+}
+
+.testimoni .testimoni-title{
+  font-weight: 600;
+  font-size: 36px;
+}
+
+/* ----Garansi Section ----- */
+.garansi{
+  padding: 0px 80px 0px 80px;
+}
+
+.garansi .garansi-icon{
+  border-radius: 10px;
+  padding: 8px;
+  display: inline;
+  width: fit-content;
+}
+
+.garansi-title{
+  font-size: 34px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* ----Diskon Section----- */
+.diskon{
+  padding: 0px 80px 0px 80px;
+}
+.diskon .diskon-title{
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.diskon .diskon-description{
+  width: 90%;
+}
+
+/* ---slider----- */
+.fa-arrow-right, .fa-arrow-left{
+  color: black;
+}
+
+.slider-single .proactive{
+  background-color: rgba(0, 0, 0, 0.246);
+}
+
 
 /* ----- Modal ------- */
 input{
@@ -46,6 +109,24 @@ input{
   color: white;
   height: 30px;
   padding: 10px;
+}
+
+option{
+  color: white;
+}
+
+select{
+  border-radius: 5px;
+  border: 1px solid #845AFE;
+  background-color: transparent;
+  color: white;
+  height: 30px;
+  padding: 10px;
+}
+
+select:focus{
+  border: 2px solid #845AFE;
+  outline: none;
 }
 
 input[type="file"]{
