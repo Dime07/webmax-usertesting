@@ -18,7 +18,7 @@ function App() {
         <Link to="/layout-1">Layout 1</Link>
         <Switch>
             <Route path="/layout-1" exact>
-              <Layout1/>
+              <Layout1 />
             </Route>
         </Switch>
       </Router>

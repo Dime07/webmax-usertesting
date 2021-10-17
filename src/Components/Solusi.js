@@ -3,7 +3,7 @@ import '../index.css';
 export default function Solusi() {
     return(
         <div className="solusi text-center">
-            <p className="solusi-title w-4/5 mx-auto text-peach-default">
+            <p className="solusi-title lg:w-4/5 md:w-full sm:w-full mx-auto text-peach-default">
                 Anda sulit untuk menemukan roti yang memenuhi kebutuhan nutrisi anda?
             </p>
             <p className="solusi-description text-peach-default">

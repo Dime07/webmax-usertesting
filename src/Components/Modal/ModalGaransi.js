@@ -1,8 +1,7 @@
 import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 
-export default function ModalFitur() {
-
+export default function ModalGaransi() {
     const [inputFields, setInputField] = useState([
         {
             icon : '',
@@ -34,9 +33,15 @@ export default function ModalFitur() {
         setInputField(values);
     }
     return(
-        <div className="modal-fitur flex flex-col" onSubmit={handleSubmit}>
-            <div className="flex modal-fitur-wrap" >
+        <div className="modal-garansi flex flex-col">
+            <div className="flex modal-garansi-wrap">
                 <div className="flex flex-col w-1/2" >
+                    <div className="input-fitur flex flex-col mb-3">
+                        <label className="text-white">
+                            Judul
+                        </label>
+                        <input name="fitur"/>
+                    </div>
                     {inputFields.map((inputField, index) => (
                         <div key={index}>
                             <div className="input-wrap flex flex-col mb-3 mr-6">
@@ -68,7 +73,7 @@ export default function ModalFitur() {
 
 
                 </div>
-            
+
                 <div className="flex flex-col w-1/2">
                     <div className="flex flex-col mb-3 mr-6">
                         <div>
@@ -120,6 +125,7 @@ export default function ModalFitur() {
                         </div>
                     </div>
                 </div>
+                
             </div>
             <button className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto" onClick={handleSubmit}> Simpan </button>
         </div>

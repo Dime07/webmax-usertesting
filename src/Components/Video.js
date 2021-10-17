@@ -4,7 +4,7 @@ import { Player } from 'video-react';
 export default function Video(){
     return(
         <div className="video bg-peach-light py-24 flex justify-center align-middle">
-            <div style={{width: "800px", height: "fit-content"}}>
+            <div className="video-wrap">
                 <Player
                     autoplay="true"
                     playsInline

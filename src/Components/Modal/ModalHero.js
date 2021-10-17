@@ -37,31 +37,31 @@ export default function ModalHero({sendColor,sendData}) {
 
     return(
         <div className="modal-hero flex flex-col">
-            <div className="flex">
-                <div className="flex flex-col w-1/2">
+            <div className="flex modal-hero-wrap lg:flex-row md:flex-col sm:flex-col modal-hero-wrap">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
                     <div className="flex flex-col mb-3 mr-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
                         <input placeholder="Masukkan judul" onChange={getisi}/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Deskripsi
                         </label>
                         <input placeholder="Masukkan judul"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Tombol
                         </label>
                         <input placeholder="Masukkan judul"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Gambar 
                         </label>
                         <input onChange={previewimg} id="imgHero" accept="image/*" type="file"  hidden/>
@@ -78,11 +78,11 @@ export default function ModalHero({sendColor,sendData}) {
                 {/* bagian deskrips */}
                 <div className="flex flex-col w-1/2">
                     <div>
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Warna Judul
                         </label>
                         <div className="list-warna flex">
-                            <div id="color1" onClick={(e) => GetColor(e)} className="button-color bg-blue-800 rounded-2xl">   
+                            <div id="color1" onClick={(e) => GetColor(e)} className="button-color bg-blue-800 rounded-2xl ">   
                             </div>
                             <div id="color2" onClick={(e) => GetColor(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
                             </div>
@@ -94,7 +94,7 @@ export default function ModalHero({sendColor,sendData}) {
                     </div>
                     
                     <div className="mt-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Warna Deskripsi
                         </label>
                         <div className="list-warna flex">
@@ -110,7 +110,7 @@ export default function ModalHero({sendColor,sendData}) {
                     </div>
 
                     <div className="mt-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Warna Tombol
                         </label>
                         <div className="list-warna flex">
@@ -126,7 +126,7 @@ export default function ModalHero({sendColor,sendData}) {
                     </div>
 
                     <div className="mt-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Warna Background
                         </label>
                         <div className="list-warna flex">

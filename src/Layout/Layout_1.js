@@ -5,7 +5,9 @@ import Fitur from "../Components/Fitur";
 import Testimoni from "../Components/Testimoni";
 import Garansi from "../Components/Garansi";
 import Diskon from "../Components/Diskon";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import CTA from "../Components/CTA";
+import Footer from "../Components/Footer";
 // ------MODAL-----
 import Modal from 'react-modal';
 import ButtonEdit from "../Components/ButtonEdit";
@@ -14,6 +16,10 @@ import ModalSolusi from "../Components/Modal/ModalSolusi";
 import ModalVideo from "../Components/Modal/ModalVideo";
 import ModalFitur from "../Components/Modal/ModalFitur";
 import ModalTestimoni from "../Components/Modal/ModalTestimoni";
+import ModalDiskon from "../Components/Modal/ModalDiskon";
+import ModalCTA from "../Components/Modal/ModalCTA";
+import ModalFooter from "../Components/Modal/ModalFooter";
+import ModalGaransi  from "../Components/Modal/ModalGaransi";
 
 import Video from "../Components/Video";
 import axios from "axios";
@@ -27,9 +33,10 @@ const customStyles = {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       backgroundColor : '#19162B',
-      width : '650px',
-      borderRadius : '10px'
+      width : '65%',
+      borderRadius : '10px',
     },
+
   };
 
 // import ReactDOMServer from 'react-dom/server'
@@ -45,23 +52,23 @@ export default function Layout_1() {
         console.log(warna)
     }
 
-    useEffect(() => {
-        ambildata()
-    }, [])
+    // useEffect(() => {
+    //     ambildata();
+    // }, [])
 
     //----- get api -----
-    function ambildata() { 
-        axios
-        .get(`http://localhost:8000/api/shops/shop_style/1`)
-        .then((res)=>{
-          setData(res.data)
+    // function ambildata() { 
+    //     axios
+    //     .get(`http://localhost:8000/api/shops/shop_style/1`)
+    //     .then((res)=>{
+    //       setData(res.data)
          
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
       
-    }
+    // }
 
     function storeData(inputdata) { 
         // console.log(inputbook);
@@ -76,6 +83,7 @@ export default function Layout_1() {
           })
       }
     
+      console.log(inputdata)
     
     
     // let coba = ReactDOMServer.renderToString(<Navbar />);
@@ -148,6 +156,39 @@ export default function Layout_1() {
     }
 
     //--- modal diskon
+    const [modalDiskonIsOpen, setDiskonIsOpen] = useState(false);
+
+    function openModalDiskon() {
+        setDiskonIsOpen(true);
+    }
+
+    function closeModalDiskon(){
+        setDiskonIsOpen(false)
+    }
+
+     //--- modal CTA
+     const [modalCTAIsOpen, setCTAIsOpen] = useState(false);
+
+     function openModalCTA() {
+         setCTAIsOpen(true);
+     }
+ 
+     function closeModalCTA(){
+         setCTAIsOpen(false)
+     }
+
+      //--- modal Footer
+      const [modalFooterIsOpen, setFooterIsOpen] = useState(false);
+
+      function openModalFooter() {
+          setFooterIsOpen(true);
+      }
+  
+      function closeModalFooter(){
+          setFooterIsOpen(false)
+      }
+
+     
 
     return(
         <div className="Layout-1 ">
@@ -247,13 +288,54 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    
+                    <ModalGaransi />
                     
                 </Modal>
             </div>
 
             <div className="Diskon-edit relative">
                 <Diskon />
+                <div onClick={openModalDiskon} className="cursor-pointer button-edit-div">
+                    <ButtonEdit  />
+                </div>
+                <Modal
+                    isOpen={modalDiskonIsOpen}
+                    onRequestClose={closeModalDiskon}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <ModalDiskon />
+                </Modal>
+            </div>
+
+            <div className="cta-edit relative">
+                <CTA />
+                <div onClick={openModalCTA} className="cursor-pointer button-edit-div">
+                    <ButtonEdit  />
+                </div>
+                <Modal
+                    isOpen={modalCTAIsOpen}
+                    onRequestClose={closeModalCTA}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <ModalCTA />
+                </Modal>
+            </div>
+
+            <div className="footer-edit relative">
+                <Footer />
+                <div onClick={openModalFooter} className="cursor-pointer button-edit-div">
+                    <ButtonEdit  />
+                </div>
+                <Modal
+                    isOpen={modalFooterIsOpen}
+                    onRequestClose={closeModalFooter}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <ModalFooter />
+                </Modal>
             </div>
 
 
