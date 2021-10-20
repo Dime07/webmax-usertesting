@@ -35,8 +35,8 @@ export default function ModalFitur() {
     }
     return(
         <div className="modal-fitur flex flex-col" onSubmit={handleSubmit}>
-            <div className="flex modal-fitur-wrap" >
-                <div className="flex flex-col w-1/2" >
+            <div className="flex lg:flex-row md:flex-col sm:flex-col modal-fitur-wrap" >
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full" >
                     {inputFields.map((inputField, index) => (
                         <div key={index}>
                             <div className="input-wrap flex flex-col mb-3 mr-6">
@@ -61,15 +61,15 @@ export default function ModalFitur() {
                         </div>
                     ))}  
                     <div className="button-wrap-fitur w-40 flex justify-between mx-auto">
-                        <button className="bg-purple-default text-white rounded-md py-2 mt-2 inline-block w-12 mx-auto" onClick={handleAddInputField}> <PlusCircleIcon className="h-8 w-8 mx-auto"/></button>
-                        <button className="bg-purple-default text-white rounded-md py-2 mt-2 inline-block w-12 mx-auto" onClick={handleRemoveField}> <MinusCircleIcon className="h-8 w-8 mx-auto"/></button>
+                        <button className="bg-purple-default text-white rounded-md py-2 mt-2 inline-block lg:w-12 md:w-10 sm:w-10 mx-auto" onClick={handleAddInputField}> <PlusCircleIcon className="lg:h-8 md:h-6 sm:h-6 lg:w-8 md:w-6 sm:w-6 mx-auto"/></button>
+                        <button className="bg-purple-default text-white rounded-md py-2 mt-2 inline-block lg:w-12 md:w-10 sm:w-10 mx-auto" onClick={handleRemoveField}> <MinusCircleIcon className="lg:h-8 md:h-6 sm:h-6 lg:w-8 md:w-6 sm:w-6 mx-auto"/></button>
                         
                     </div>
 
 
                 </div>
             
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
                     <div className="flex flex-col mb-3 mr-6">
                         <div>
                             <label className="text-white">

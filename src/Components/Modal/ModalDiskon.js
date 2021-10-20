@@ -11,24 +11,24 @@ export default function ModalDiskon(){
     }
     return(
         <div className="modal-diskon flex flex-col">
-            <div className="flex">
-                <div className="flex flex-col  w-1/2">
+            <div className="flex lg:flex-row md:flex-col sm:flex-col">
+                <div className="flex flex-col  lg:w-1/2 md:w-full sm:w-full">
                     <div className="flex flex-col mb-3 mr-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
                         <input placeholder="Masukkan judul"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Tombol
                         </label>
                         <input placeholder="Masukkan judul"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Gambar 
                         </label>
                         <input onChange={previewimg} id="imgHero" accept="image/*" type="file"  hidden/>
@@ -42,10 +42,10 @@ export default function ModalDiskon(){
                     </div>
                 </div>
 
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
                     <div className="flex flex-col mb-3 mr-6">
                         <div>
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Judul
                             </label>
                             <div className="list-warna flex">
@@ -61,7 +61,7 @@ export default function ModalDiskon(){
                         </div>
                         
                         <div className="mt-6">
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Deskripsi
                             </label>
                             <div className="list-warna flex">
@@ -77,7 +77,7 @@ export default function ModalDiskon(){
                         </div>
 
                         <div className="mt-6">
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Background
                             </label>
                             <div className="list-warna flex">

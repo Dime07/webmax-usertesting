@@ -2,7 +2,7 @@ export default function ModalFooter() {
     return(
         <div className='modal-footer flex flex-col'>
             <div className="flex flex-col">
-                <div className="flex flex-col  w-1/2">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
                     <div className="input-fitur flex flex-col mb-3">
                         <label className="text-white">
                             Slogan

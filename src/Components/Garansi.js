@@ -6,9 +6,9 @@ export default function Garansi() {
         backgroundColor : '#FF8D50',
     };
     return(
-        <div className="garansi flex lg:flex-row md:flex-col sm:flex-col">
-            <div className="left-side lg:w-1/2 md:w-full sm:hidden pt-5 flex justify-center ">
-                <img className="m-0" src={garansiimg} alt="Gambar Garansi" />
+        <div className="garansi flex lg:flex-row md:flex-col sm:flex-col lg:py-0 md:py-5 sm:py-5">
+            <div className="left-side lg:w-1/2 md:w-full sm:w-full lg:inline sm:hidden pt-5 flex justify-center ">
+                <img className="mx-0" src={garansiimg} alt="Gambar Garansi" />
             </div>
             <div className="right-side lg:w-1/2 md:w-full sm:w-full flex flex-col my-auto">
                 <p className="garansi-title lg:text-left md:text-center sm:text-center mt-2" style={{color: '#FF8D50'}}>

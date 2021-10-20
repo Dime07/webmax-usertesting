@@ -34,19 +34,19 @@ export default function ModalGaransi() {
     }
     return(
         <div className="modal-garansi flex flex-col">
-            <div className="flex modal-garansi-wrap">
-                <div className="flex flex-col w-1/2" >
+            <div className="flex modal-garansi-wrap lg:flex-row md:flex-col sm:flex-col">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full" >
                     <div className="input-fitur flex flex-col mb-3">
-                        <label className="text-white">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
                         <input name="fitur"/>
                     </div>
                     {inputFields.map((inputField, index) => (
                         <div key={index}>
-                            <div className="input-wrap flex flex-col mb-3 mr-6">
+                            <div className="input-wrap flex flex-col mb-3 lg:mr-6 md:mr-0 sm:mr-0">
                                 <div className="input-icon flex flex-col mb-3">
-                                    <label className="text-white">
+                                    <label className="text-white lg:text-md md:text-md sm:text-sm">
                                         Icon
                                     </label>
                                     <select id="icon-list" name="icon" value={inputField.icon}>
@@ -57,7 +57,7 @@ export default function ModalGaransi() {
                                     </select>
                                 </div>
                                 <div className="input-fitur flex flex-col mb-3">
-                                    <label className="text-white">
+                                    <label className="text-white lg:text-md md:text-md sm:text-sm">
                                         Fitur
                                     </label>
                                     <input name="fitur" value={inputField.fitur} onChange={event => handleChangeInput(index, event)}/>
@@ -74,10 +74,10 @@ export default function ModalGaransi() {
 
                 </div>
 
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
                     <div className="flex flex-col mb-3 mr-6">
                         <div>
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Judul
                             </label>
                             <div className="list-warna flex">
@@ -93,7 +93,7 @@ export default function ModalGaransi() {
                         </div>
                         
                         <div className="mt-6">
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Deskripsi
                             </label>
                             <div className="list-warna flex">
@@ -109,7 +109,7 @@ export default function ModalGaransi() {
                         </div>
 
                         <div className="mt-6">
-                            <label className="text-white">
+                            <label className="text-white lg:text-md md:text-md sm:text-sm">
                                 Warna Background
                             </label>
                             <div className="list-warna flex">

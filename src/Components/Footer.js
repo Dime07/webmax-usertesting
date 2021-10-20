@@ -5,7 +5,7 @@ export default function Footer(){
         <div className="footer flex lg:flex-row md:flex-col sm:flex-col justify-between" style={{color: "#FF8D50", backgroundColor: "#FEF1E6"}}>
             <div className="left-side">
                 <img className="w-52" src={logo_bakery} alt="logo footer"/>
-                <p className="slogan mt-24">
+                <p className="slogan lg:mt-24 md:mt-15 sm:mt-8">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
             </div>

@@ -8,6 +8,7 @@ import Diskon from "../Components/Diskon";
 import { useState } from "react";
 import CTA from "../Components/CTA";
 import Footer from "../Components/Footer";
+
 // ------MODAL-----
 import Modal from 'react-modal';
 import ButtonEdit from "../Components/ButtonEdit";
@@ -33,7 +34,8 @@ const customStyles = {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       backgroundColor : '#19162B',
-      width : '65%',
+      width : '70%',
+      height : 'fit-content',
       borderRadius : '10px',
     },
 
@@ -47,6 +49,36 @@ export default function Layout_1() {
     const [warna, setWarna] = useState("#FF8D50")
     const [data, setData] = useState([]);
     const [inputdata, setInputdata] = useState();
+
+    let [heroDummy, setHeroDummy] = useState(
+        {
+            judul : "Roti panggang, untuk kebutuhan kamu setiap hari",
+            deskripsi : "Kami menyediakan berbagai macam roti yang siap kamu bawa pulang",
+            bgcolor : "#FEF1E6",
+            colorJudul : "#FF8D50",
+            colorDeskripsi : "#FF8D50",
+            colorTombol : "#FF8D50",
+            tombol : "Jelajahi Sekarang"
+
+        }
+    );
+
+    
+
+    function getDummy(data){
+        setHeroDummy(
+            {...heroDummy, 
+                judul: data.judul , 
+                deskripsi: data.deskripsi, 
+                bgcolor: data.bgcolor,
+                colorJudul : data.colorJudul,
+                colorDeskripsi : data.colorDeskripsi,
+                colorTombol: data.colorTombol,
+                tombol : data.tombol
+            }
+        )
+    }
+
     function getColor(color){
         setWarna(color)
         console.log(warna)
@@ -70,20 +102,19 @@ export default function Layout_1() {
       
     // }
 
-    function storeData(inputdata) { 
-        // console.log(inputbook);
-        // alert("Data berhasil ditambahkan!")
-        axios
-          .put("http://localhost:8000/api/shops/shop_style/1", inputdata)
-          .then(()=>{
-            setInputdata((prevdata) => [...prevdata, inputdata]);
-          })
-          .catch((error) => {
-            console.log(error.response.data);
-          })
-      }
+    // function storeData(inputdata) { 
+    //     // console.log(inputbook);
+    //     // alert("Data berhasil ditambahkan!")
+    //     axios
+    //       .put("http://localhost:8000/api/shops/shop_style/1", inputdata)
+    //       .then(()=>{
+    //         setInputdata((prevdata) => [...prevdata, inputdata]);
+    //       })
+    //       .catch((error) => {
+    //         console.log(error.response.data);
+    //       })
+    //   }
     
-      console.log(inputdata)
     
     
     // let coba = ReactDOMServer.renderToString(<Navbar />);
@@ -198,7 +229,7 @@ export default function Layout_1() {
             </div>
             {/* hero section */}
             <div className="hero-edit relative">
-                <Hero headercolor={warna} konten={data}/>
+                <Hero headercolor={warna} konten={data} dataDummy={heroDummy} />
                 <div onClick={openModalHero} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -208,7 +239,8 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalHero sendColor={getColor} sendData={storeData}/>
+                    <ModalHero sendColor={getColor}  sendDummy={getDummy}/>
+                    {/* sendData={storeData} */}
                 </Modal>
             </div>
             {/* solsusi section */}

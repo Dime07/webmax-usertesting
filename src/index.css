@@ -30,7 +30,7 @@
 
 @media (max-width: 768px) {
   .hero{
-    padding: 20px 40px 20px 40px;
+    padding: 40px;
   }
   .hero .hero-title{
     font-size: 24px;
@@ -50,7 +50,7 @@
 
 /* -----Solusi Section------ */
 .solusi{
-  padding: 110px 80px 110px 80px;
+  padding: 10px 80px 110px 80px;
 }
 
 .solusi .solusi-title{
@@ -68,12 +68,12 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   .solusi{
-    padding: 40px 20px 40px 20px;
+    padding: 25px;
   }
   .solusi .solusi-title{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
   }
 }
@@ -108,6 +108,18 @@
   padding: 8px;
   display: inline;
   width: fit-content;
+}
+
+@media (max-width:768px){
+  .fitur{
+    padding: 20px 40px 20px 40px;
+  }
+}
+
+@media (max-width:350px){
+  .fitur{
+    padding: 20px;
+  }
 }
 
 /* -----Testimoni section------ */
@@ -242,9 +254,9 @@
   }
 }
 
-@media (max-width: 350px){
+@media (max-width: 358px){
   .cta{
-    padding: 20px;
+    padding: 15px;
   }
 
   .cta .cta-title{
@@ -263,6 +275,26 @@
   font-size: 24px;
   width: 70%;
   text-align: left;
+}
+
+@media (max-width:768px){
+  .footer{
+    padding: 45px 40px 45px 40px;
+  
+  }
+  .footer .slogan{
+    font-size: 20px;
+  }
+}
+
+@media (max-width:350px){
+  .footer{
+    padding: 15px 20px 15px 20px;
+  
+  }
+  .footer .slogan{
+    font-size: 18px;
+  }
 }
 
 /* ---slider----- */
@@ -323,10 +355,26 @@ input:focus{
   outline: none;
 }
 
-.button-color{
-  width: 24px;
+.button-color-1,
+.button-color-2,
+.button-color-3,
+.button-color-4{
+  width: 50px;
   height: 24px;
+  border: none;
 }
+
+
+.button-active{
+  border: 2px solid white;
+}
+
+/* .button-color-1:active,
+.button-color-2:active,
+.button-color-3:active,
+.button-color-4:active{
+  border: 2px solid white;
+} */
 
 .preview{
   border-radius: 5px;
@@ -355,7 +403,7 @@ input:focus{
 
 @media (max-width: 768px){
   input{
-    height: 20px;
+    height: 30px;
     padding: 10px;
   }
 
