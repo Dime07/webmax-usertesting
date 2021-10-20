@@ -50,7 +50,7 @@
 
 /* -----Solusi Section------ */
 .solusi{
-  padding: 10px 80px 110px 80px;
+  padding: 110px 80px 110px 80px;
 }
 
 .solusi .solusi-title{
@@ -60,7 +60,7 @@
 
 @media (max-width: 768px) {
   .solusi{
-    padding: 80px 40px 80px 40px;
+    padding: 60px 40px 60px 40px;
   }
   .solusi .solusi-title{
     font-size: 24px;
@@ -317,6 +317,15 @@ input{
   padding: 10px;
 }
 
+textarea{
+  border-radius: 5px;
+  border: 1px solid #845AFE;
+  background-color: transparent;
+  color: white;
+  height: 100px;
+  padding: 10px;
+}
+
 option{
   color: white;
 }
@@ -326,8 +335,12 @@ select{
   border: 1px solid #845AFE;
   background-color: transparent;
   color: white;
-  height: 30px;
   padding: 10px;
+}
+
+option{
+  color: black;
+  border-radius: 5px;
 }
 
 select:focus{
@@ -355,10 +368,8 @@ input:focus{
   outline: none;
 }
 
-.button-color-1,
-.button-color-2,
-.button-color-3,
-.button-color-4{
+
+.button-color{
   width: 50px;
   height: 24px;
   border: none;

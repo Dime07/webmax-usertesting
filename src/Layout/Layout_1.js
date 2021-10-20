@@ -63,9 +63,27 @@ export default function Layout_1() {
         }
     );
 
+    const [solusiDummy, setSolusiDummy] = useState(
+        {
+            judul : "Anda sulit untuk menemukan roti yang memenuhi kebutuhan nutrisi anda?",
+            deskripsi : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus lorem, porta et aliquam ornare, fermentum sed est. Duis molestie velit nec ante semper maximus. Sed pretium lobortis erat in tempor. Sed sodales dolor",
+            bgcolor : "white",
+            colorJudul : "#FF8D50",
+            colorDeskripsi : "#FF8D50"
+        }
+    );
+
+    const [colorFitur, setColorFitur] = useState(
+        {
+            colorIcon : "#FF8D50",
+            colorDeskripsi : "black",
+            bgcolor: "white"
+        }
+    )
+
     
 
-    function getDummy(data){
+    function getHeroDummy(data){
         setHeroDummy(
             {...heroDummy, 
                 judul: data.judul , 
@@ -78,6 +96,30 @@ export default function Layout_1() {
             }
         )
     }
+
+    function getSolusiDummy(data){
+        setSolusiDummy(
+            {...solusiDummy,
+                judul: data.judul , 
+                deskripsi: data.deskripsi, 
+                bgcolor: data.bgcolor,
+                colorJudul : data.colorJudul,
+                colorDeskripsi : data.colorDeskripsi           
+            }
+        )
+    }
+
+    function getColorFitur(data){
+        setColorFitur(
+            {...colorFitur,
+                colorIcon : data.colorIcon,
+                colorDeskripsi :  data.colorDeskripsi,
+                bgcolor: data.bgcolor
+            
+            }
+        )
+    }
+
 
     function getColor(color){
         setWarna(color)
@@ -239,13 +281,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalHero sendColor={getColor}  sendDummy={getDummy}/>
+                    <ModalHero sendColor={getColor}  sendDummy={getHeroDummy}/>
                     {/* sendData={storeData} */}
                 </Modal>
             </div>
             {/* solsusi section */}
             <div className="solusi-edit relative">
-                <Solusi />
+                <Solusi dataDummy={solusiDummy}/>
                 <div onClick={openModalSolusi} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -255,7 +297,7 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalSolusi />
+                    <ModalSolusi sendDummy={getSolusiDummy}/>
                     
                 </Modal>
             </div> 
@@ -277,7 +319,7 @@ export default function Layout_1() {
             </div>
 
             <div className="fitur-edit relative">
-                <Fitur />
+                <Fitur colorDummy={colorFitur}/>
                 <div onClick={openModalFitur} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -287,8 +329,7 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    {/* FITUR BELUM SELESAI MODALNYA */}
-                    <ModalFitur />
+                    <ModalFitur sendDummy={getColorFitur}/>
                     
                 </Modal>
             </div>

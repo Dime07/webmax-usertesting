@@ -22,15 +22,15 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
     }
 
     //-----input dummy data----
-    function getjudulhero(e){
+    function getjudul(e){
         setHeroDummy({...inputDummy, judul: e.target.value})
     }
 
-    function getdeskripsihero(e) {
+    function getdeskripsi(e) {
         setHeroDummy({...inputDummy, deskripsi : e.target.value})
     }
 
-    function gettombolhero(e) {
+    function gettombol(e) {
         setHeroDummy({...inputDummy, deskripsi : e.target.value})
     }
 
@@ -43,7 +43,7 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
         let elemetncss = getComputedStyle(element)
         let kodewarna = elemetncss.backgroundColor;
         setHeroDummy({...inputDummy, colorJudul : kodewarna})
-        element.classList.toggle("button-active")
+        e.target.classList.toggle("button-active")
     
     }
 
@@ -51,21 +51,24 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
         let element = document.getElementById(e.target.id);
         let elemetncss = getComputedStyle(element)
         let kodewarna = elemetncss.backgroundColor;
-        setHeroDummy({...inputDummy, colorDeskripsi : kodewarna}) 
+        setHeroDummy({...inputDummy, colorDeskripsi : kodewarna})
+        e.target.classList.toggle("button-active")
     }
 
     function GetColorTombol(e){
         let element = document.getElementById(e.target.id);
         let elemetncss = getComputedStyle(element)
         let kodewarna = elemetncss.backgroundColor;
-        setHeroDummy({...inputDummy, colorTombol : kodewarna}) 
+        setHeroDummy({...inputDummy, colorTombol : kodewarna})
+        e.target.classList.toggle("button-active") 
     }
 
     function GetColorBackground(e){
         let element = document.getElementById(e.target.id);
         let elemetncss = getComputedStyle(element)
         let kodewarna = elemetncss.backgroundColor;
-        setHeroDummy({...inputDummy, bgcolor : kodewarna}) 
+        setHeroDummy({...inputDummy, bgcolor : kodewarna})
+        e.target.classList.toggle("button-active")
     }
 
     function kirimdata(){
@@ -91,21 +94,21 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
-                        <input placeholder="Masukkan judul" onChange={getjudulhero}/>
+                        <input placeholder="Masukkan Teks" onChange={getjudul}/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Deskripsi
                         </label>
-                        <input placeholder="Masukkan judul" onChange={getdeskripsihero}/>
+                        <input placeholder="Masukkan Deskripsi" onChange={getdeskripsi}/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Tombol
                         </label>
-                        <input placeholder="Masukkan judul" onChange={gettombolhero}/>
+                        <input placeholder="Masukkan Tombol" onChange={gettombol}/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
@@ -130,13 +133,13 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Judul
                         </label>
                         <div className="list-warna flex ">
-                            <button id="color1" onClick={(e) => GetColorJudul(e)} className="button-color-1 bg-blue-800 rounded-2xl ">   
+                            <button id="color1" onClick={(e) => GetColorJudul(e)} className="button-color bg-blue-800 rounded-2xl ">   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorJudul(e)} className="button-color-1 bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorJudul(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorJudul(e)} className="button-color-1 bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorJudul(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color-1 bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
                             </button>
                         </div>
                     </div>
@@ -146,13 +149,13 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Deskripsi
                         </label>
                         <div className="list-warna  flex">
-                            <button id="color1" onClick={(e) => GetColorDeskripsi(e)} className="button-color-2 bg-blue-800 rounded-2xl">   
+                            <button id="color1" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-blue-800 rounded-2xl">   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color-2 bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color-2 bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color-2 bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
                             </button>
                         </div>
                     </div>
@@ -162,13 +165,13 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Tombol
                         </label>
                         <div className="list-warna flex">
-                            <button id="color1" onClick={(e) => GetColorTombol(e)} className="button-color-3 bg-blue-800 rounded-2xl">   
+                            <button id="color1" onClick={(e) => GetColorTombol(e)} className="button-color bg-blue-800 rounded-2xl">   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorTombol(e)} className="button-color-3 bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorTombol(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorTombol(e)} className="button-color-3 bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorTombol(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color-3 bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
                             </button>
                         </div>
                     </div>
