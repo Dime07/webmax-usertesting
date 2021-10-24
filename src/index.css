@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 *{
-  font-family: 'Poppins', sans-serif;
+  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* LAYOUT 1 */
+.Layout-1{
+  font-family: 'Poppins', sans-serif;
+}
 /* ----- posisi button ----- */
 .button-edit-div{
   position: absolute;
@@ -17,6 +20,17 @@
   top: 25px;
 }
 
+.button-setting-div{
+  position: absolute;
+  left: 25px;
+  top: 25px;
+}
+
+.button-writing-div{
+  position: absolute;
+  left: 25px;
+  top: 75px;
+}
 
 
 /* ---- Hero Section ------ */
@@ -317,6 +331,15 @@ input{
   padding: 10px;
 }
 
+input[type="color"]{
+  border-radius: 5px;
+  border: 1px solid #845AFE;
+  background-color: transparent;
+  color: white;
+  height: 40px;
+  padding: 5px;
+}
+
 textarea{
   border-radius: 5px;
   border: 1px solid #845AFE;
@@ -380,12 +403,6 @@ input:focus{
   border: 2px solid white;
 }
 
-/* .button-color-1:active,
-.button-color-2:active,
-.button-color-3:active,
-.button-color-4:active{
-  border: 2px solid white;
-} */
 
 .preview{
   border-radius: 5px;
@@ -402,14 +419,25 @@ input:focus{
 
 .modal-fitur, 
 .modal-garansi,
-.modal-hero{
-  height: 70vh;
+.modal-hero,
+.modal-setting,
+.modal-writing{
+  height: 80vh;
 }
 
 .modal-fitur-wrap, 
 .modal-garansi-wrap,
-.modal-hero-wrap{
+.modal-hero-wrap,
+.modal-setting-wrap,
+.copywriting-wrap{
   overflow-y: auto;
+}
+
+.template-wrap{
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px){

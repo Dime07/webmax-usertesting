@@ -1,34 +1,49 @@
 import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/solid'
-import { useState } from 'react'
+import { useState } from 'react';
+import { UploadIcon } from '@heroicons/react/outline';
+import fiturImg from "../../Assets/Images/fitur-img.png"
 
-export default function ModalFitur({sendDummy}) {
+export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainColor}) {
 
     const [inputFields, setInputField] = useState([
         {
-            icon : 'StarIcon1',
-            fitur: 'Halo fitur 1'
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar kerumah'
         },
         {
-            icon : 'StarIcon2',
-            fitur: 'Halo fitur 2'
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar ke kantor'
         },
         {
-            icon : 'StarIcon3',
-            fitur: 'Halo fitur 3'
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar ke depan'
         }
     ])
 
     const [inputDummy, setFiturDummy] = useState({
+        judul : "Berikut yang akan anda dapatkan",
         colorIcon : "#FF8D50",
         colorDeskripsi : "black",
         bgcolor: "white"
     })
+
+    const [urlImage, setUrlImage] = useState(fiturImg);
 
     function handleChangeInput(index, event) {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values)
 
+    }
+
+    function getIcon(event,index){
+        const items = [...inputFields];
+        const item = {...items[index]}
+        item.icon = event.target.value;
+
+        items[index] = item
+        setInputField(items)
+        
     }
     
 
@@ -69,6 +84,18 @@ export default function ModalFitur({sendDummy}) {
 
     function kirimdata(){
         sendDummy(inputDummy)
+        sendInputDummy(inputFields)
+        sendImage(urlImage)
+    }
+
+    function previewimg(){
+        let imgHero = document.getElementById("imgHero");
+        let imgpreviewhero = document.getElementById("imgpreviewhero");
+        const [file] = imgHero.files
+        if (file){
+            setUrlImage(URL.createObjectURL(file))
+            imgpreviewhero.src = URL.createObjectURL(file)
+        }
     }
 
     return(
@@ -82,11 +109,9 @@ export default function ModalFitur({sendDummy}) {
                                     <label className="text-white lg:text-md md:text-md sm:text-sm">
                                         Icon
                                     </label>
-                                    <select id="icon-list" name="icon" className="select">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="fiat">Fiat</option>
-                                        <option value="audi">Audi</option>
+                                    <select id="icon-list" name="icon" className="select" onChange={event => getIcon(event,index)}>
+                                        <option value="Bintang">Bintang</option>
+                                        <option value="Checklist">Checklist</option>
                                     </select>
                                 </div>
                                 <div className="input-fitur flex flex-col mb-3">
@@ -104,6 +129,20 @@ export default function ModalFitur({sendDummy}) {
                         
                     </div>
 
+                    <div className="flex flex-col mb-3 mr-6 w-full">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
+                            Gambar 
+                        </label>
+                        <input onChange={previewimg} id="imgHero" accept="image/*" type="file"  hidden/>
+                        <label className="upload-label flex justify-center" for="imgHero">
+                            Upload 
+                            <UploadIcon className="ml-2 h-5 w-5 text-white"/>
+                        </label>
+                        <div className="preview flex">
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                        </div>
+                    </div>
+
 
                 </div>
             
@@ -114,14 +153,19 @@ export default function ModalFitur({sendDummy}) {
                                 Warna Icon
                             </label>
                             <div className="list-warna flex">
-                                <div id="color1" onClick={(e) => GetColorIcon(e)}  className="button-color bg-blue-800 rounded-2xl">   
-                                </div>
-                                <div id="color2" onClick={(e) => GetColorIcon(e)}  className="button-color bg-red-500 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color3" onClick={(e) => GetColorIcon(e)}  className="button-color bg-green-600 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color4" onClick={(e) => GetColorIcon(e)}  className="button-color bg-pink-700 rounded-2xl ml-3">   
-                                </div>
+                                <button id="color1" onClick={(e) => GetColorIcon(e)}  className="button-color  rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
+                                </button>
+                                <button id="color2" onClick={(e) => GetColorIcon(e)}  className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                                </button>
+                                <button id="color3" onClick={(e) => GetColorIcon(e)}  className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorIcon(e)}  className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorIcon(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorIcon(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                </button>
+                                
                             </div>
                         </div>
                         
@@ -130,14 +174,18 @@ export default function ModalFitur({sendDummy}) {
                                 Warna Deskripsi
                             </label>
                             <div className="list-warna flex">
-                                <div id="color1" onClick={(e) => GetColorDeskripsi(e)}  className="button-color bg-blue-800 rounded-2xl">   
-                                </div>
-                                <div id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
-                                </div>
+                                <button id="color1" onClick={(e) => GetColorDeskripsi(e)}  className="button-color rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
+                                </button>
+                                <button id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                                </button>
+                                <button id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                </button>
                             </div>
                         </div>
 
@@ -146,14 +194,18 @@ export default function ModalFitur({sendDummy}) {
                                 Warna Background
                             </label>
                             <div className="list-warna flex">
-                                <div id="color1" onClick={(e) => GetColorBackground(e)} className="button-color bg-blue-800 rounded-2xl">   
-                                </div>
-                                <div id="color2" onClick={(e) => GetColorBackground(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color3" onClick={(e) => GetColorBackground(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
-                                </div>
-                                <div id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
-                                </div>
+                                <button id="color1" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
+                                </button>
+                                <button id="color2" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                                </button>
+                                <button id="color3" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                </button>
+                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                </button>
                             </div>
                         </div>
                     </div>

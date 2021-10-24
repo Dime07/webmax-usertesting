@@ -12,6 +12,8 @@ import Footer from "../Components/Footer";
 // ------MODAL-----
 import Modal from 'react-modal';
 import ButtonEdit from "../Components/ButtonEdit";
+import ButtonSetting from "../Components/ButtonSetting";
+import ButtonWriting from "../Components/ButtonWriting";
 import ModalHero from "../Components/Modal/ModalHero";
 import ModalSolusi from "../Components/Modal/ModalSolusi";
 import ModalVideo from "../Components/Modal/ModalVideo";
@@ -21,9 +23,19 @@ import ModalDiskon from "../Components/Modal/ModalDiskon";
 import ModalCTA from "../Components/Modal/ModalCTA";
 import ModalFooter from "../Components/Modal/ModalFooter";
 import ModalGaransi  from "../Components/Modal/ModalGaransi";
+import ModalSetting from "../Components/Modal/ModalSetting";
+import ModalWriting from "../Components/Modal/ModalWriting";
+
+// -----Default gambar
+import heroImg from "../Assets/Images/hero-img.png"
+import ctaImg from "../Assets/Images/CTA-img.png"
+import diskonimage from "../Assets/Images/diskon-img.png"
+import fiturImg from "../Assets/Images/fitur-img.png"
+import garansiimg from "../Assets/Images/garansi-img.png"
 
 import Video from "../Components/Video";
 import axios from "axios";
+
 
 const customStyles = {
     content: {
@@ -41,6 +53,7 @@ const customStyles = {
 
   };
 
+
 // import ReactDOMServer from 'react-dom/server'
 
 
@@ -50,7 +63,7 @@ export default function Layout_1() {
     const [data, setData] = useState([]);
     const [inputdata, setInputdata] = useState();
 
-    let [heroDummy, setHeroDummy] = useState(
+    const [heroDummy, setHeroDummy] = useState(
         {
             judul : "Roti panggang, untuk kebutuhan kamu setiap hari",
             deskripsi : "Kami menyediakan berbagai macam roti yang siap kamu bawa pulang",
@@ -81,8 +94,111 @@ export default function Layout_1() {
         }
     )
 
-    
+    const [fiturDummy, setFiturDummy] = useState([
+        {
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar kerumah'
+        },
+        {
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar ke kantor'
+        },
+        {
+            icon : 'Bintang',
+            fitur: 'Delivery yang cepat dan bisa diantar ke depan'
+        }
+    ]);
 
+    const [colorGaransi, setColorGaransi] = useState(
+        {
+            judul : "Berikut yang akan anda dapatkan",
+            colorJudul : "#FF8D50",
+            colorIcon : "#FF8D50",
+            colorDeskripsi : "black",
+            bgcolor: "white"
+        }
+    )
+
+    const [GaransiDummy, setGaransiDummy] = useState([
+        {
+            icon : 'Bintang',
+            garansi: 'Roti selalu fresh'
+        },
+        {
+            icon : 'Bintang',
+            garansi: 'Hangat sampai ke tangan kamu'
+        },
+        {
+            icon : 'Bintang',
+            garansi: 'Murah tanpa pengawet dan bahan kimia berbahaya'
+        }
+    ]);
+
+    const [diskonDummy, setDiskonDummy] = useState(
+        {
+            judul : "Gratis Ongkos Kirim !!!",
+            deskripsi : "Gratis ongkos kirim setiap pembelian 2 buah roti dengan 1 minuman",
+            bgcolor : "#FEF1E6",
+            colorJudul : "#FF8D50",
+            colorDeskripsi : "black",
+
+        }
+    );
+
+
+    const [CTADummy, setCTADummy] = useState(
+        {
+            judul : "Roti panggang, untuk kebutuhan kamu setiap hari",
+            bgcolor : "white",
+            colorJudul : "#FF8D50",
+            colorTombol : "#FF8D50",
+            tombol : "Jelajahi Sekarang",
+
+        }
+    );
+
+    const [footerDummy, setFooterDummy] = useState({
+        slogan : "Roti Hangat, Siap Diangkat",
+    })
+
+    const [mainColor, setMainColor] = useState({
+        warna1 : 'red',
+        warna2 : 'green',
+        warna3 : 'blue',
+        warna4 : 'yellow'
+    })
+
+    const [testimoniColor, setTestimoniColor] = useState({
+        colorJudul : "#FF8D50",
+        bgcolor : "#FEF1E6"
+    });
+
+    const [mainFont, setMainFont] = useState("Poppins");
+    const [imageHero, setImageHero] = useState(heroImg);
+    const [imageFitur, setImageFitur] = useState(fiturImg);
+    const [imageGaransi, setImageGaransi] = useState(garansiimg);
+    const [imageDiskon, setImageDiskon] = useState(diskonimage);
+    const [imageCTA, setImageCTA] = useState(ctaImg);
+    const [video, setVideo] = useState("https://media.w3.org/2010/05/sintel/trailer_hd.mp4");
+    const [colorVideo, setColorVideo] = useState("#FEF1E6");
+
+    const copyWriting = {
+        HeroJudul : heroDummy.judul,
+        HeroDeskripsi : heroDummy.deskripsi,
+        SolusiJudul : solusiDummy.judul,
+        SolusiDeskripsi : solusiDummy.deskripsi,
+        GaransiJudul : colorGaransi.judul,
+        DiskonJudul : diskonDummy.judul,
+        DiskonDeskripsi : diskonDummy.deskripsi,
+        CTAJudul : CTADummy.judul,
+        Slogan : footerDummy.slogan
+    }
+
+
+
+
+    
+    // ---Function ambil data dummy
     function getHeroDummy(data){
         setHeroDummy(
             {...heroDummy, 
@@ -120,6 +236,113 @@ export default function Layout_1() {
         )
     }
 
+    function getFiturDummy(data) {
+        setFiturDummy(data)
+        console.log(fiturDummy)
+    }
+
+    function getColorGaransi(data){
+        setColorGaransi(
+            {...colorGaransi,
+                judul : data.judul,
+                colorJudul : data.colorJudul,
+                colorIcon : data.colorIcon,
+                colorDeskripsi :  data.colorDeskripsi,
+                bgcolor: data.bgcolor
+            
+            }
+        )
+    }
+
+    function getGaransiDummy(data) {
+        setGaransiDummy(data)
+        console.log(GaransiDummy)
+    }
+
+    function getDiskonDummy(data){
+        setDiskonDummy(
+            {...diskonDummy, 
+                judul: data.judul , 
+                deskripsi: data.deskripsi, 
+                bgcolor: data.bgcolor,
+                colorJudul : data.colorJudul,
+                colorDeskripsi : data.colorDeskripsi,
+            }
+        )
+    }
+
+    function getCTADummy(data){
+        setCTADummy(
+            {...CTADummy, 
+                judul: data.judul ,  
+                bgcolor: data.bgcolor,
+                colorJudul : data.colorJudul,
+                colorTombol: data.colorTombol,
+                tombol : data.tombol
+            }
+        )
+    }
+
+    function getFooterDummy(data){
+        setFooterDummy(
+            {...footerDummy, slogan : data.slogan}
+        )
+    }
+
+    function getMainColor(data){
+        setMainColor(
+            {...mainColor,
+                warna1 : data.warna1,
+                warna2 : data.warna2,
+                warna3 : data.warna3,
+                warna4 : data.warna4,
+            }
+        )
+    }
+
+    function getTestimoniColor(data){
+        setTestimoniColor(
+            {...testimoniColor,
+                colorJudul : data.colorJudul,
+                bgcolor : data.bgcolor
+
+            }
+        )
+    }
+
+    function getMainFont(data) {
+        setMainFont(data)
+    }
+
+    // ---- batas fucntion dummy
+
+    function getImageHero(data) {
+        setImageHero(data)
+    }
+
+    function getImageFitur(data) {
+        setImageFitur(data)
+    }
+
+    function getImageGaransi(data) {
+        setImageGaransi(data)
+    }
+
+    function getImageDiskon(data) {
+        setImageDiskon(data)
+    }
+
+    function getImageCTA(data) {
+        setImageCTA(data)
+    }
+
+    function getVideo(data) {
+        setVideo(data)
+    }
+
+    function getColorVideo(data){
+        setColorVideo(data)
+    }
 
     function getColor(color){
         setWarna(color)
@@ -261,17 +484,66 @@ export default function Layout_1() {
           setFooterIsOpen(false)
       }
 
+    //---- modal setting
+      const [modalSettingIsOpen, setSettingIsOpen] = useState(false);
+
+      function openModalSetting() {
+          setSettingIsOpen(true);
+      }
+  
+      function closeModalSetting(){
+          setSettingIsOpen(false)
+      }
+
+    //---- modal setting
+    const [modalWritingIsOpen, setWritingIsOpen] = useState(false);
+
+    function openModalWriting() {
+        setWritingIsOpen(true);
+    }
+
+    function closeModalWriting(){
+        setWritingIsOpen(false)
+    }
+
      
 
     return(
-        <div className="Layout-1 ">
+        // font family belum terapply
+        <div className="Layout-1 " style={{fontFamily : mainFont}}> 
             <div id="navbar">
                 {/* Navbar */}
                 <Navbar />
             </div>
             {/* hero section */}
             <div className="hero-edit relative">
-                <Hero headercolor={warna} konten={data} dataDummy={heroDummy} />
+                <Hero headercolor={warna} konten={data} dataDummy={heroDummy} url={imageHero}/>
+                <div onClick={openModalSetting} className="cursor-pointer button-setting-div">
+                    <ButtonSetting />
+                </div>
+                {/* modal setting */}
+                <Modal
+                isOpen={modalSettingIsOpen}
+                onRequestClose={closeModalSetting}
+                style={customStyles}
+                contentLabel="Example Modal"
+                >
+                    <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} />
+                </Modal>
+
+                <div onClick={openModalWriting} className="cursor-pointer button-writing-div">
+                    <ButtonWriting />
+                </div>
+                {/* modal writing */}
+                <Modal
+                isOpen={modalWritingIsOpen}
+                onRequestClose={closeModalWriting}
+                style={customStyles}
+                contentLabel="Example Modal"
+                >
+                    <ModalWriting copywriting={copyWriting} fitur={fiturDummy} garansi={GaransiDummy}/>
+                </Modal>
+
                 <div onClick={openModalHero} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -281,7 +553,7 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalHero sendColor={getColor}  sendDummy={getHeroDummy}/>
+                    <ModalHero sendColor={getColor}  sendDummy={getHeroDummy} mainColor={mainColor} sendImage={getImageHero}/>
                     {/* sendData={storeData} */}
                 </Modal>
             </div>
@@ -297,13 +569,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalSolusi sendDummy={getSolusiDummy}/>
+                    <ModalSolusi sendDummy={getSolusiDummy} mainColor={mainColor}/>
                     
                 </Modal>
             </div> 
 
             <div className="video-edit relative">
-                <Video />
+                <Video url={video} colorVideo={colorVideo}/>
                 <div onClick={openModalVideo} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -313,13 +585,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalVideo />
+                    <ModalVideo mainColor={mainColor} sendDummy={getColorVideo} sendVideo={getVideo}/>
                     
                 </Modal>
             </div>
 
             <div className="fitur-edit relative">
-                <Fitur colorDummy={colorFitur}/>
+                <Fitur colorDummy={colorFitur} fiturDummy={fiturDummy} url={imageFitur}/>
                 <div onClick={openModalFitur} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -329,13 +601,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalFitur sendDummy={getColorFitur}/>
+                    <ModalFitur sendDummy={getColorFitur} sendInputDummy={getFiturDummy} sendImage={getImageFitur} mainColor={mainColor}/>
                     
                 </Modal>
             </div>
 
             <div className="testimoni-edit relative">
-                <Testimoni />
+                <Testimoni color={testimoniColor}/>
                 <div onClick={openModalTestimoni} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -345,13 +617,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalTestimoni />
+                    <ModalTestimoni mainColor={mainColor} sendDummy={getTestimoniColor} />
                     
                 </Modal>
             </div>
             
             <div  className="Garansi-edit relative">
-                <Garansi />
+                <Garansi colorDummy={colorGaransi} fiturDummy={GaransiDummy} url={imageGaransi}/>
                 <div onClick={openModalGaransi} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -361,13 +633,13 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >  
-                    <ModalGaransi />
+                    <ModalGaransi sendDummy={getColorGaransi} sendInputDummy={getGaransiDummy} sendImage={getImageGaransi} mainColor={mainColor}/>
                     
                 </Modal>
             </div>
 
             <div className="Diskon-edit relative">
-                <Diskon />
+                <Diskon diskonDummy={diskonDummy} url={imageDiskon}/>
                 <div onClick={openModalDiskon} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -377,12 +649,12 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalDiskon />
+                    <ModalDiskon sendDummy={getDiskonDummy} sendImage={getImageDiskon} mainColor={mainColor}/>
                 </Modal>
             </div>
 
             <div className="cta-edit relative">
-                <CTA />
+                <CTA CTADummy={CTADummy}  url={imageCTA}/>
                 <div onClick={openModalCTA} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -392,12 +664,12 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalCTA />
+                    <ModalCTA sendDummy={getCTADummy} sendImage={getImageCTA} mainColor={mainColor}/>
                 </Modal>
             </div>
 
             <div className="footer-edit relative">
-                <Footer />
+                <Footer footerDummy={footerDummy}/>
                 <div onClick={openModalFooter} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>
@@ -407,7 +679,7 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalFooter />
+                    <ModalFooter sendDummy={getFooterDummy} mainColor={mainColor}/>
                 </Modal>
             </div>
 

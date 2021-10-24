@@ -1,8 +1,9 @@
 import { useState} from "react";
 import { UploadIcon } from '@heroicons/react/outline'
+import heroImg from "../../Assets/Images/hero-img.png"
 
 
-export default function ModalHero({sendColor,sendData, sendDummy}) {
+export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sendImage}) {
     const [warna, setWarna] = useState("");
     const [inputdata, setInputdata] = useState();
     const [inputDummy, setHeroDummy] = useState({
@@ -14,6 +15,7 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
         colorTombol : "#FF8D50",
         tombol : "Jelajahi Sekarang"
     });
+    const [urlImage, setUrlImage] = useState(heroImg);
 
 
     //----- get api -----
@@ -31,7 +33,7 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
     }
 
     function gettombol(e) {
-        setHeroDummy({...inputDummy, deskripsi : e.target.value})
+        setHeroDummy({...inputDummy, tombol : e.target.value})
     }
 
 
@@ -75,6 +77,7 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
         sendColor(warna)
         // sendData(inputdata)
         sendDummy(inputDummy)
+        sendImage(urlImage)
     }
 
     function previewimg(){
@@ -82,6 +85,7 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
         let imgpreviewhero = document.getElementById("imgpreviewhero");
         const [file] = imgHero.files
         if (file){
+            setUrlImage(URL.createObjectURL(file))
             imgpreviewhero.src = URL.createObjectURL(file)
         }
     }
@@ -133,13 +137,17 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Judul
                         </label>
                         <div className="list-warna flex ">
-                            <button id="color1" onClick={(e) => GetColorJudul(e)} className="button-color bg-blue-800 rounded-2xl ">   
+                            <button id="color1" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl " style={{backgroundColor : mainColor.warna1}}>   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorJudul(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorJudul(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorJudul(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-black rounded-2xl ml-3" >   
                             </button>
                         </div>
                     </div>
@@ -149,13 +157,17 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Deskripsi
                         </label>
                         <div className="list-warna  flex">
-                            <button id="color1" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-blue-800 rounded-2xl">   
+                            <button id="color1" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl" style={{backgroundColor: mainColor.warna1}}>   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna2}}>   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna3}}>   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-black rounded-2xl ml-3" >   
                             </button>
                         </div>
                     </div>
@@ -165,13 +177,17 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Tombol
                         </label>
                         <div className="list-warna flex">
-                            <button id="color1" onClick={(e) => GetColorTombol(e)} className="button-color bg-blue-800 rounded-2xl">   
+                            <button id="color1" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl" style={{backgroundColor: mainColor.warna1}}>   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorTombol(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna2}}>   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorTombol(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna3}}>   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-black rounded-2xl ml-3" >   
                             </button>
                         </div>
                     </div>
@@ -181,13 +197,17 @@ export default function ModalHero({sendColor,sendData, sendDummy}) {
                             Warna Background
                         </label>
                         <div className="list-warna flex">
-                            <button id="color1" onClick={(e) => GetColorBackground(e)} className="button-color bg-blue-800 rounded-2xl">   
+                            <button id="color1" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl" style={{backgroundColor: mainColor.warna1}}>   
                             </button>
-                            <button id="color2" onClick={(e) => GetColorBackground(e)} className="button-color bg-red-500 rounded-2xl ml-3">   
+                            <button id="color2" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna2}}>   
                             </button>
-                            <button id="color3" onClick={(e) => GetColorBackground(e)} className="button-color bg-green-600 rounded-2xl ml-3">   
+                            <button id="color3" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna3}}>   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-pink-700 rounded-2xl ml-3">   
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor: mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
                             </button>
                         </div>
                     </div>

@@ -1,6 +1,12 @@
 import { UploadIcon } from '@heroicons/react/outline'
+import { useState } from 'react';
 
-export default function ModalTestimoni() {
+export default function ModalTestimoni({mainColor, sendDummy}) {
+
+    const [color, setColor] = useState({
+        colorJudul : "#FF8D50",
+        bgcolor : "#FEF1E6"
+    });
 
     function previewimg(){
         let imgHero = document.getElementById("imgHero");
@@ -12,6 +18,27 @@ export default function ModalTestimoni() {
 
         }
     }
+
+    function GetColorBackground(e){
+        let element = document.getElementById(e.target.id);
+        let elemetncss = getComputedStyle(element)
+        let kodewarna = elemetncss.backgroundColor;
+        setColor({...color, bgcolor : kodewarna})
+        e.target.classList.toggle("button-active")
+    }
+
+    function GetColorJudul(e){
+        let element = document.getElementById(e.target.id);
+        let elemetncss = getComputedStyle(element)
+        let kodewarna = elemetncss.backgroundColor;
+        setColor({...color, colorJudul : kodewarna})
+        e.target.classList.toggle("button-active")
+    
+    }
+
+    function kirimdata() {
+        sendDummy(color)
+      }
 
     return(
         <div className="modal-testimoni flex flex-col">
@@ -33,25 +60,50 @@ export default function ModalTestimoni() {
                 </div>
 
                 <div className="flex flex-col lg:w-1/2 md:w-full sm:w-full">
+
+                    <div>
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
+                            Warna Judul
+                        </label>
+                        <div className="list-warna flex">
+                            <button id="color1" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
+                            </button>
+                            <button id="color2" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                            </button>
+                            <button id="color3" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                            </button>
+                        </div>
+                    </div>
+
                     <div>
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Warna Background
                         </label>
                         <div className="list-warna flex">
-                            <div id="color1"  className="button-color bg-blue-800 rounded-2xl">   
-                            </div>
-                            <div id="color2"  className="button-color bg-red-500 rounded-2xl ml-3">   
-                            </div>
-                            <div id="color3"  className="button-color bg-green-600 rounded-2xl ml-3">   
-                            </div>
-                            <div id="color4"  className="button-color bg-pink-700 rounded-2xl ml-3">   
-                            </div>
+                            <button id="color1" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
+                            </button>
+                            <button id="color2" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                            </button>
+                            <button id="color3" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto"> Simpan </button>
+            <button onClick={kirimdata} className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto"> Simpan </button>
         </div>
     )
   }

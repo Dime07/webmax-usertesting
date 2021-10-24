@@ -1,13 +1,31 @@
 import { UploadIcon } from '@heroicons/react/outline'
+import { useState } from 'react/cjs/react.development';
 
-export default function ModalVideo() {
+export default function ModalVideo({mainColor, sendDummy, sendVideo}) {
+    const [urlVideo, setUrlVideo] = useState("");
+    const [colorVideo, setColorVideo] = useState("#FEF1E6");
+
+    function GetColorBackground(e){
+        let element = document.getElementById(e.target.id);
+        let elemetncss = getComputedStyle(element)
+        let kodewarna = elemetncss.backgroundColor;
+        setColorVideo({...colorVideo, kodewarna})
+        e.target.classList.toggle("button-active")
+    }
+
     function previewimg(){
         let imgHero = document.getElementById("imgHero");
         let imgpreviewhero = document.getElementById("imgpreviewhero");
         const [file] = imgHero.files
         if (file){
+            setUrlVideo(URL.createObjectURL(file))
             imgpreviewhero.src = URL.createObjectURL(file)
         }
+    }
+
+    function kirimdata(){
+        sendDummy(colorVideo)
+        sendVideo(urlVideo)
     }
 
     return(
@@ -23,6 +41,9 @@ export default function ModalVideo() {
                             Upload 
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
+                        <div className="preview flex">
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                        </div>
                     </div>
                 </div>
 
@@ -32,20 +53,24 @@ export default function ModalVideo() {
                             Warna Background
                         </label>
                         <div className="list-warna flex">
-                            <div id="color1"  className="button-color bg-blue-800 rounded-2xl">   
+                            <div id="color1" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
                             </div>
-                            <div id="color2"  className="button-color bg-red-500 rounded-2xl ml-3">   
+                            <div id="color2" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
                             </div>
-                            <div id="color3"  className="button-color bg-green-600 rounded-2xl ml-3">   
+                            <div id="color3" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
                             </div>
-                            <div id="color4"  className="button-color bg-pink-700 rounded-2xl ml-3">   
+                            <div id="color4" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                             </div>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto"> Simpan </button>
+            <button className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto" onClick={kirimdata}> Simpan </button>
         </div>
     )
   }
