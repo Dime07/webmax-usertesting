@@ -543,15 +543,15 @@ export default function Layout_1() {
                     <ButtonWriting />
                 </div>
                 {/* modal writing */}
-                <Modal
+                {/* <Modal
                 isOpen={modalWritingIsOpen}
                 onRequestClose={closeModalWriting}
                 style={customStyles}
                 ariaHideApp={false}
                 contentLabel="Example Modal"
                 >
-                    {/* <ModalWriting copywriting={copyWriting} fitur={fiturDummy} garansi={GaransiDummy}/> */}
-                </Modal>
+                    <ModalWriting copywriting={copyWriting} fitur={fiturDummy} garansi={GaransiDummy}/>
+                </Modal> */}
 
                 <div onClick={openModalHero} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
