@@ -1,11 +1,12 @@
 import { UploadIcon } from '@heroicons/react/outline'
 import { useState } from 'react';
 import ctaImg from "../../Assets/Images/CTA-img.png"
+import notUploaded from "../../Assets/Images/notUploaded.png"
 
 export default function ModalCTA({sendDummy, sendImage, mainColor}){
     const [inputDummy, setCTADummy] = useState({
         judul : "Roti panggang, untuk kebutuhan kamu setiap hari",
-        bgcolor : "#FEF1E6",
+        bgcolor : "white",
         colorJudul : "#FF8D50",
         colorTombol : "#FF8D50",
         tombol : "Jelajahi Sekarang"
@@ -64,6 +65,10 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
         sendDummy(inputDummy)
         sendImage(urlImage)
     }
+
+    function emptyImage(e){
+        e.target.src = notUploaded
+    }
     
     return(
         <div className="modal-cta flex flex-col">
@@ -73,14 +78,14 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
-                        <input placeholder="Masukkan judul" onChange={getjudul}/>
+                        <input placeholder="Masukkan judul" onChange={getjudul} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Tombol
                         </label>
-                        <input placeholder="Masukkan judul" onChange={gettombol}/>
+                        <input placeholder="Masukkan judul" onChange={gettombol} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
@@ -93,7 +98,7 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>
                         </div>
                     </div>
                 </div>
@@ -122,7 +127,7 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                         
                         <div className="mt-6">
                             <label className="text-white lg:text-md md:text-md sm:text-sm">
-                                Warna tombol
+                                Warna Tombol
                             </label>
                             <div className="list-warna flex">
                                 <button id="color1" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   

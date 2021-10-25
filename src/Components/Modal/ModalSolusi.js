@@ -64,7 +64,7 @@ export default function ModalSolusi({sendDummy, mainColor}){
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Deskripsi
                         </label>
-                        <textarea placeholder="Masukkan Deskripsi" onChange={getdeskripsi}/>
+                        <textarea placeholder="Masukkan Deskripsi" onChange={getdeskripsi} />
                     </div>
                 </div>
 

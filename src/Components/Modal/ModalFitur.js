@@ -2,6 +2,7 @@ import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
 import { UploadIcon } from '@heroicons/react/outline';
 import fiturImg from "../../Assets/Images/fitur-img.png"
+import notUploaded from "../../Assets/Images/notUploaded.png"
 
 export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainColor}) {
 
@@ -98,6 +99,10 @@ export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainCo
         }
     }
 
+    function emptyImage(e){
+        e.target.src = notUploaded
+    }
+
     return(
         <div className="modal-fitur flex flex-col" onSubmit={kirimdata}>
             <div className="flex lg:flex-row md:flex-col sm:flex-col modal-fitur-wrap" >
@@ -139,7 +144,7 @@ export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainCo
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>
                         </div>
                     </div>
 

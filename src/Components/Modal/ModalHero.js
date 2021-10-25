@@ -1,9 +1,10 @@
 import { useState} from "react";
 import { UploadIcon } from '@heroicons/react/outline'
 import heroImg from "../../Assets/Images/hero-img.png"
+import notUploaded from "../../Assets/Images/notUploaded.png"
 
 
-export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sendImage}) {
+export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sendImage, sendBg}) {
     const [warna, setWarna] = useState("");
     const [inputdata, setInputdata] = useState();
     const [inputDummy, setHeroDummy] = useState({
@@ -16,6 +17,7 @@ export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sen
         tombol : "Jelajahi Sekarang"
     });
     const [urlImage, setUrlImage] = useState(heroImg);
+    const [urlbg, setUrlBg] = useState();
 
 
     //----- get api -----
@@ -74,10 +76,10 @@ export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sen
     }
 
     function kirimdata(){
-        sendColor(warna)
         // sendData(inputdata)
         sendDummy(inputDummy)
         sendImage(urlImage)
+        sendBg(urlbg)
     }
 
     function previewimg(){
@@ -90,6 +92,20 @@ export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sen
         }
     }
 
+    function previewbg(){
+        let imgbg = document.getElementById("imgbg");
+        let imgpreviewbg = document.getElementById("imgpreviewbg");
+        const [file] = imgbg.files
+        if (file){
+            setUrlBg(URL.createObjectURL(file))
+            imgpreviewbg.src = URL.createObjectURL(file)
+        }
+    }
+
+    function emptyImage(e){
+        e.target.src = notUploaded
+    }
+
     return(
         <div className="modal-hero flex flex-col">
             <div className="flex modal-hero-wrap lg:flex-row md:flex-col sm:flex-col modal-hero-wrap">
@@ -98,14 +114,14 @@ export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sen
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
-                        <input placeholder="Masukkan Teks" onChange={getjudul}/>
+                        <input placeholder="Masukkan Judul" onChange={getjudul} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Deskripsi
                         </label>
-                        <input placeholder="Masukkan Deskripsi" onChange={getdeskripsi}/>
+                        <input placeholder="Masukkan Deskripsi" onChange={getdeskripsi} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
@@ -125,7 +141,21 @@ export default function ModalHero({sendColor,sendData, sendDummy, mainColor, sen
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>                
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col mb-3 mr-6 w-full">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
+                            Background Gambar 
+                        </label>
+                        <input onChange={previewbg} id="imgbg" accept="image/*" type="file"  hidden/>
+                        <label className="upload-label flex justify-center" for="imgbg">
+                             Upload 
+                            <UploadIcon className="ml-2 h-5 w-5 text-white"/>
+                        </label>
+                        <div className="preview flex">
+                            <img className="mx-auto" id="imgpreviewbg" src="#" alt="" onError={emptyImage}/>                
                         </div>
                     </div>
                     

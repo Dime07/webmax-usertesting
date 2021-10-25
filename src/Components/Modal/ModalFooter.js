@@ -20,7 +20,7 @@ export default function ModalFooter({sendDummy}) {
                         <label className="text-white">
                             Slogan
                         </label>
-                        <input name="fitur" onChange={getslogan}/>
+                        <input name="fitur" onChange={getslogan} />
                     </div>
                 </div>
                 <button onClick={kirimdata} className="bg-purple-light text-white rounded-md py-2 mt-10 inline-block w-40 mx-auto"> Simpan </button>

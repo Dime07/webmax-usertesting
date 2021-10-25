@@ -3,7 +3,7 @@ import Button from "./Button"
 
 export default function CTA({CTADummy, url}) {
     return(
-        <div className="cta flex" style={{backgroundColor : CTADummy.bgcolor}}>
+        <div className="cta flex justify-center" style={{backgroundColor : CTADummy.bgcolor}}>
             <div className="flex lg:flex-row md:flex-col sm:flex-col justify-center">
                 <div className="lg:w-1/2 md:w-full sm:w-full flex justify-center mr-3">
                     {url == undefined &&(

@@ -2,6 +2,7 @@ import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import { UploadIcon } from '@heroicons/react/outline';
 import garansiimg from "../../Assets/Images/garansi-img.png";
+import notUploaded from "../../Assets/Images/notUploaded.png"
 
 export default function ModalGaransi({sendDummy, sendInputDummy, sendImage, mainColor}) {
     const [inputFields, setInputField] = useState([
@@ -110,6 +111,10 @@ export default function ModalGaransi({sendDummy, sendInputDummy, sendImage, main
             imgpreviewhero.src = URL.createObjectURL(file)
         }
     }
+
+    function emptyImage(e){
+        e.target.src = notUploaded
+    }
     return(
         <div className="modal-garansi flex flex-col" onSubmit={kirimdata}>
             <div className="flex modal-garansi-wrap lg:flex-row md:flex-col sm:flex-col">
@@ -118,7 +123,7 @@ export default function ModalGaransi({sendDummy, sendInputDummy, sendImage, main
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
-                        <input name="garansi" onChange={getjudul}/>
+                        <input placeholder="Masukkan Judul" name="garansi" onChange={getjudul}/>
                     </div>
                     {inputFields.map((inputField, index) => (
                         <div key={index}>
@@ -158,7 +163,7 @@ export default function ModalGaransi({sendDummy, sendInputDummy, sendImage, main
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>
                         </div>
                     </div>
 

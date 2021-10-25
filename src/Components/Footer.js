@@ -1,10 +1,16 @@
 import logo_bakery from "../Assets/Images/RumahBakery.png"
 
-export default function Footer({footerDummy}){
+export default function Footer({footerDummy, logo}){
     return(
         <div className="footer flex lg:flex-row md:flex-col sm:flex-col justify-between" style={{color: "#FF8D50", backgroundColor: "#FEF1E6"}}>
             <div className="left-side">
-                <img className="w-52" src={logo_bakery} alt="logo footer"/>
+                {logo == undefined &&(
+                    <img className="w-52" src={logo_bakery} alt="logo footer"/>
+                )}
+                {logo !== undefined && (
+                    <img className="w-52" src={logo} alt="logo footer"/>
+                )}
+                
                 <p className="slogan lg:mt-24 md:mt-15 sm:mt-8 font-bold">
                     {footerDummy.slogan}
                 </p>

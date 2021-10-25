@@ -32,9 +32,10 @@ import ctaImg from "../Assets/Images/CTA-img.png"
 import diskonimage from "../Assets/Images/diskon-img.png"
 import fiturImg from "../Assets/Images/fitur-img.png"
 import garansiimg from "../Assets/Images/garansi-img.png"
+import logo_bakery from "../Assets/Images/RumahBakery.png"
 
 import Video from "../Components/Video";
-import axios from "axios";
+// import axios from "axios";
 
 
 const customStyles = {
@@ -175,12 +176,14 @@ export default function Layout_1() {
 
     const [mainFont, setMainFont] = useState("Poppins");
     const [imageHero, setImageHero] = useState(heroImg);
+    const [bgHero, setBgHero] = useState();
     const [imageFitur, setImageFitur] = useState(fiturImg);
     const [imageGaransi, setImageGaransi] = useState(garansiimg);
     const [imageDiskon, setImageDiskon] = useState(diskonimage);
     const [imageCTA, setImageCTA] = useState(ctaImg);
     const [video, setVideo] = useState("https://media.w3.org/2010/05/sintel/trailer_hd.mp4");
     const [colorVideo, setColorVideo] = useState("#FEF1E6");
+    const [logo, setlogo] = useState(logo_bakery);
 
     const copyWriting = {
         HeroJudul : heroDummy.judul,
@@ -320,6 +323,10 @@ export default function Layout_1() {
         setImageHero(data)
     }
 
+    function getBgHero(data){
+        setBgHero(data)
+    }
+
     function getImageFitur(data) {
         setImageFitur(data)
     }
@@ -340,13 +347,12 @@ export default function Layout_1() {
         setVideo(data)
     }
 
-    function getColorVideo(data){
-        setColorVideo(data)
+    function getLogo(data) {
+        setlogo(data)
     }
 
-    function getColor(color){
-        setWarna(color)
-        console.log(warna)
+    function getColorVideo(data){
+        setColorVideo(data)
     }
 
     // useEffect(() => {
@@ -513,11 +519,11 @@ export default function Layout_1() {
         <div className="Layout-1 " style={{fontFamily : mainFont}}> 
             <div id="navbar">
                 {/* Navbar */}
-                <Navbar />
+                <Navbar logo={logo}/>
             </div>
             {/* hero section */}
             <div className="hero-edit relative">
-                <Hero headercolor={warna} konten={data} dataDummy={heroDummy} url={imageHero}/>
+                <Hero headercolor={warna} konten={data} dataDummy={heroDummy} url={imageHero} bg={bgHero}/>
                 <div onClick={openModalSetting} className="cursor-pointer button-setting-div">
                     <ButtonSetting />
                 </div>
@@ -528,7 +534,7 @@ export default function Layout_1() {
                 style={customStyles}
                 contentLabel="Example Modal"
                 >
-                    <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} />
+                    <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} sendLogo={getLogo}/>
                 </Modal>
 
                 <div onClick={openModalWriting} className="cursor-pointer button-writing-div">
@@ -553,7 +559,7 @@ export default function Layout_1() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <ModalHero sendColor={getColor}  sendDummy={getHeroDummy} mainColor={mainColor} sendImage={getImageHero}/>
+                    <ModalHero  sendDummy={getHeroDummy} mainColor={mainColor} sendImage={getImageHero} sendBg={getBgHero}/>
                     {/* sendData={storeData} */}
                 </Modal>
             </div>
@@ -669,7 +675,7 @@ export default function Layout_1() {
             </div>
 
             <div className="footer-edit relative">
-                <Footer footerDummy={footerDummy}/>
+                <Footer footerDummy={footerDummy} logo={logo}/>
                 <div onClick={openModalFooter} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>

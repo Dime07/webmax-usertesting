@@ -1,17 +1,20 @@
 import { UploadIcon } from '@heroicons/react/outline';
 import { useState } from 'react/cjs/react.development';
+import notUploaded from "../../Assets/Images/notUploaded.png";
+import logo_bakery from "../../Assets/Images/RumahBakery.png"
 
 
 
-export default function ModalSetting({sendDataColor, sendDataFont}) {
+export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
     const[warnaDasar, setWarnaDasar] = useState({
-        warna1 : 'red',
-        warna2 : 'green',
-        warna3 : 'blue',
-        warna4 : 'yellow'
-    })
+        warna1 : '#0000FF',
+        warna2 : '#00FF00',
+        warna3 : '#FF007F',
+        warna4 : '#6F00FF'
+    });
 
-    const[font, setfont] = useState("Poppins")
+    const[font, setfont] = useState("Poppins");
+    const[logo, setlogo] = useState(logo_bakery);
 
     function previewimg(){
         let imgHero = document.getElementById("imgHero");
@@ -19,6 +22,16 @@ export default function ModalSetting({sendDataColor, sendDataFont}) {
         const [file] = imgHero.files
         if (file){
             imgpreviewhero.src = URL.createObjectURL(file)
+        }
+    }
+
+    function previewlogo(){
+        let imgLogo = document.getElementById("imgLogo");
+        let imgpreviewlogo = document.getElementById("imgpreviewlogo");
+        const [file] = imgLogo.files
+        if (file){
+            setlogo(URL.createObjectURL(file))
+            imgpreviewlogo.src = URL.createObjectURL(file)
         }
     }
     
@@ -46,6 +59,11 @@ export default function ModalSetting({sendDataColor, sendDataFont}) {
     function kirimdata(){
         sendDataColor(warnaDasar)
         sendDataFont(font)
+        sendLogo(logo)
+    }
+
+    function emptyImage(e){
+        e.target.src = notUploaded
     }
     return(
         <div className="modal-setting flex flex-col">
@@ -55,19 +73,14 @@ export default function ModalSetting({sendDataColor, sendDataFont}) {
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Subdomain
                         </label>
-                        <div className="flex">
-                            <input placeholder="Masukkan Subdomain"/>
-                            <p className="text-white lg:text-md md:text-md sm:text-sm ml-2 mt-1">
-                                webmax.id
-                            </p>
-                        </div>
+                        <input placeholder="Masukkan Subdomain"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Meta tag
                         </label>
-                        <input placeholder="Masukkan judul"/>
+                        <input placeholder="Masukkan Meta Tag"/>
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
@@ -80,7 +93,21 @@ export default function ModalSetting({sendDataColor, sendDataFont}) {
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col mb-3 mr-6 w-full">
+                        <label className="text-white lg:text-md md:text-md sm:text-sm">
+                            Logo
+                        </label>
+                        <input onChange={previewlogo} id="imgLogo" accept="image/*" type="file"  hidden/>
+                        <label className="upload-label flex justify-center" for="imgLogo">
+                            Upload 
+                            <UploadIcon className="ml-2 h-5 w-5 text-white"/>
+                        </label>
+                        <div className="preview flex">
+                            <img className="mx-auto" id="imgpreviewlogo" src="#" alt="" onError={emptyImage}/>
                         </div>
                     </div>
 
@@ -118,15 +145,15 @@ export default function ModalSetting({sendDataColor, sendDataFont}) {
                             Warna
                         </label>
                         <div className="flex justify-between mt-2">
-                            <input type="color" onChange={(e)=> getcolor1(e)}/>
-                            <input type="color" onChange={(e)=> getcolor2(e)}/>
-                            <input type="color" onChange={(e)=> getcolor3(e)}/>
-                            <input type="color" onChange={(e)=> getcolor4(e)}/>
+                            <input type="color" onChange={(e)=> getcolor1(e)} value={warnaDasar.warna1}/>
+                            <input type="color" onChange={(e)=> getcolor2(e)} value={warnaDasar.warna2}/>
+                            <input type="color" onChange={(e)=> getcolor3(e)} value={warnaDasar.warna3}/>
+                            <input type="color" onChange={(e)=> getcolor4(e)} value={warnaDasar.warna4}/>
                         </div>
                     </div>
                     <div className="input-icon flex flex-col mb-3">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
-                            Icon
+                            Font
                         </label>
                         <select id="icon-list" name="icon" className="select" onChange={(e) => getFont(e)}>
                             <option value="Poppins" style={{fontFamily : 'Poppins'}}>Poppins</option>

@@ -1,6 +1,7 @@
 import { UploadIcon } from '@heroicons/react/outline'
 import { useState } from 'react';
 import diskonimage from "../../Assets/Images/diskon-img.png";
+import notUploaded from "../../Assets/Images/notUploaded.png"
 
 export default function ModalDiskon({sendDummy, sendImage, mainColor}){
     const [inputDummy, setDiskonDummy] = useState({
@@ -61,6 +62,10 @@ export default function ModalDiskon({sendDummy, sendImage, mainColor}){
         sendDummy(inputDummy)
         sendImage(urlImage)
     }
+
+    function emptyImage(e){
+        e.target.src = notUploaded
+    }
     return(
         <div className="modal-diskon flex flex-col">
             <div className="flex lg:flex-row md:flex-col sm:flex-col">
@@ -69,14 +74,14 @@ export default function ModalDiskon({sendDummy, sendImage, mainColor}){
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Judul
                         </label>
-                        <input placeholder="Masukkan judul" onChange={getjudul}/>
+                        <input placeholder="Masukkan judul" onChange={getjudul} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6">
                         <label className="text-white lg:text-md md:text-md sm:text-sm">
                             Deskripsi
                         </label>
-                        <input placeholder="Masukkan judul" onChange={getdeskripsi}/>
+                        <input placeholder="Masukkan judul" onChange={getdeskripsi} />
                     </div>
 
                     <div className="flex flex-col mb-3 mr-6 w-full">
@@ -89,7 +94,7 @@ export default function ModalDiskon({sendDummy, sendImage, mainColor}){
                             <UploadIcon className="ml-2 h-5 w-5 text-white"/>
                         </label>
                         <div className="preview flex">
-                            <img className="mx-auto" id="imgpreviewhero" src="#" alt=""/>
+                            <img className="mx-auto" id="imgpreviewhero" src="#" alt="" onError={emptyImage}/>
                         </div>
                     </div>
                 </div>
