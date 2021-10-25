@@ -1,4 +1,5 @@
 import { Player } from 'video-react';
+import { PlayIcon } from '@heroicons/react/solid';
 
 
 export default function Video({colorVideo, url}){
@@ -8,6 +9,8 @@ export default function Video({colorVideo, url}){
                 {url == undefined &&(
                     <Player
                     autoplay="true"
+                    width="100%"
+                    playIcon = {<PlayIcon />}
                     playsInline
                     poster="/assets/poster.png"
                     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
