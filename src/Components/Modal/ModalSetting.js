@@ -4,12 +4,15 @@ import notUploaded from "../../Assets/Images/notUploaded.png";
 import logo_bakery from "../../Assets/Images/RumahBakery.png"
 
 export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
-    const[warnaDasar, setWarnaDasar] = useState({
+
+    const [mainColor, setMainColor] = useState(
+        {
         warna1 : '#0000FF',
         warna2 : '#00FF00',
         warna3 : '#FF007F',
         warna4 : '#6F00FF'
-    });
+        }
+    );
 
     const[font, setfont] = useState("Poppins");
     const[logo, setlogo] = useState(logo_bakery);
@@ -34,19 +37,19 @@ export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
     }
     
     function getcolor1(e){
-        setWarnaDasar({...warnaDasar, warna1 : e.target.value})
+        setMainColor({...mainColor, warna1 : e.target.value})
     }
 
     function getcolor2(e){
-        setWarnaDasar({...warnaDasar, warna2 : e.target.value})
+        setMainColor({...mainColor, warna2 : e.target.value})
     }
 
     function getcolor3(e){
-        setWarnaDasar({...warnaDasar, warna3 : e.target.value})
+        setMainColor({...mainColor, warna3 : e.target.value})
     }
 
     function getcolor4(e){
-        setWarnaDasar({...warnaDasar, warna4 : e.target.value})
+        setMainColor({...mainColor, warna4 : e.target.value})
     }
 
     function getFont(e) {
@@ -55,7 +58,7 @@ export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
 
 
     function kirimdata(){
-        sendDataColor(warnaDasar)
+        sendDataColor(mainColor)
         sendDataFont(font)
         // sendLogo(logo)
     }
@@ -143,10 +146,10 @@ export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
                             Warna
                         </label>
                         <div className="flex justify-between mt-2">
-                            <input type="color" onChange={(e)=> getcolor1(e)} value={warnaDasar.warna1}/>
-                            <input type="color" onChange={(e)=> getcolor2(e)} value={warnaDasar.warna2}/>
-                            <input type="color" onChange={(e)=> getcolor3(e)} value={warnaDasar.warna3}/>
-                            <input type="color" onChange={(e)=> getcolor4(e)} value={warnaDasar.warna4}/>
+                            <input type="color" onChange={(e)=> getcolor1(e)} />
+                            <input type="color" onChange={(e)=> getcolor2(e)} />
+                            <input type="color" onChange={(e)=> getcolor3(e)} />
+                            <input type="color" onChange={(e)=> getcolor4(e)} />
                         </div>
                     </div>
                     <div className="input-icon flex flex-col mb-3">

@@ -23,7 +23,7 @@ import ModalDiskon from "../Components/Modal/ModalDiskon";
 import ModalCTA from "../Components/Modal/ModalCTA";
 import ModalFooter from "../Components/Modal/ModalFooter";
 import ModalGaransi  from "../Components/Modal/ModalGaransi";
-import ModalSett from "../Components/Modal/ModalSett";
+import ModalSetting from "../Components/Modal/ModalSetting";
 import ModalWriting from "../Components/Modal/ModalWriting";
 
 // -----Default gambar
@@ -535,8 +535,7 @@ export default function Layout_1() {
                 ariaHideApp={false}
                 contentLabel="Example Modal"
                 >
-                    {/* <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} /> */}
-                    <ModalSett sendDataColor={getMainColor} sendDataFont={getMainFont} />
+                    <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} />
                     
                 </Modal>
 
