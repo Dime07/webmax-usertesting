@@ -530,6 +530,7 @@ export default function Layout_1() {
                 isOpen={modalSettingIsOpen}
                 onRequestClose={closeModalSetting}
                 style={customStyles}
+                ariaHideApp={false}
                 contentLabel="Example Modal"
                 >
                     <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} sendLogo={getLogo}/>
