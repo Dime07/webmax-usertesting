@@ -163,10 +163,10 @@ export default function Layout_1() {
     })
 
     const [mainColor, setMainColor] = useState({
-        warna1 : 'red',
-        warna2 : 'green',
-        warna3 : 'blue',
-        warna4 : 'yellow'
+        warna1 : '#0000FF',
+        warna2 : '#00FF00',
+        warna3 : '#FF007F',
+        warna4 : '#6F00FF'
     })
 
     const [testimoniColor, setTestimoniColor] = useState({
@@ -183,7 +183,7 @@ export default function Layout_1() {
     const [imageCTA, setImageCTA] = useState(ctaImg);
     const [video, setVideo] = useState("https://media.w3.org/2010/05/sintel/trailer_hd.mp4");
     const [colorVideo, setColorVideo] = useState("#FEF1E6");
-    const [logo, setlogo] = useState(logo_bakery);
+    const [mainlogo, setMainlogo] = useState(logo_bakery);
 
     const copyWriting = {
         HeroJudul : heroDummy.judul,
@@ -348,7 +348,7 @@ export default function Layout_1() {
     }
 
     function getLogo(data) {
-        setlogo(data)
+        setMainlogo(data)
     }
 
     function getColorVideo(data){
@@ -519,7 +519,7 @@ export default function Layout_1() {
         <div className="Layout-1 " style={{fontFamily : mainFont}}> 
             <div id="navbar">
                 {/* Navbar */}
-                <Navbar logo={logo}/>
+                <Navbar logo={mainlogo}/>
             </div>
             {/* hero section */}
             <div className="hero-edit relative">
@@ -685,7 +685,7 @@ export default function Layout_1() {
             </div>
 
             <div className="footer-edit relative">
-                <Footer footerDummy={footerDummy} logo={logo}/>
+                <Footer footerDummy={footerDummy} logo={mainlogo}/>
                 <div onClick={openModalFooter} className="cursor-pointer button-edit-div">
                     <ButtonEdit  />
                 </div>

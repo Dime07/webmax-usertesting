@@ -3,8 +3,6 @@ import { useState } from 'react/cjs/react.development';
 import notUploaded from "../../Assets/Images/notUploaded.png";
 import logo_bakery from "../../Assets/Images/RumahBakery.png"
 
-
-
 export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
     const[warnaDasar, setWarnaDasar] = useState({
         warna1 : '#0000FF',
