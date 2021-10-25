@@ -535,7 +535,8 @@ export default function Layout_1() {
                 ariaHideApp={false}
                 contentLabel="Example Modal"
                 >
-                    <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} sendLogo={getLogo}/>
+                    {/* <ModalSetting sendDataColor={getMainColor} sendDataFont={getMainFont} sendLogo={getLogo}/> */}
+                    <ModalWriting copywriting={copyWriting} fitur={fiturDummy} garansi={GaransiDummy}/>
                 </Modal>
 
                 <div onClick={openModalWriting} className="cursor-pointer button-writing-div">
