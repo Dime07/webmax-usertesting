@@ -166,9 +166,9 @@ export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainCo
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorIcon(e)}  className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorIcon(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorIcon(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorIcon(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorIcon(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                                 
                             </div>
@@ -187,9 +187,9 @@ export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainCo
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorDeskripsi(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                             </div>
                         </div>
@@ -207,9 +207,9 @@ export default function ModalFitur({sendDummy, sendInputDummy, sendImage, mainCo
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                             </div>
                         </div>

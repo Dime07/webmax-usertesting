@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 *{
+  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -44,6 +45,9 @@
 }
 
 @media (max-width: 768px) {
+  .hero{
+    padding: 40px;
+  }
   .hero .hero-title{
     font-size: 24px;
     font-weight: 600;
@@ -51,6 +55,9 @@
 }
 
 @media (max-width: 350px) {
+  .hero{
+    padding: 20px;
+  }
   .hero .hero-title{
     font-size: 18px;
     font-weight: 600;

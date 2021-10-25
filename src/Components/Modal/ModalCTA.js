@@ -118,9 +118,9 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorJudul(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorJudul(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorJudul(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                             </div>
                         </div>
@@ -138,9 +138,9 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorTombol(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorTombol(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorTombol(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                             </div>
                         </div>
@@ -158,9 +158,9 @@ export default function ModalCTA({sendDummy, sendImage, mainColor}){
                                 </button>
                                 <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color  rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                                <button id="color5" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
                                 </button>
-                                <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                                <button id="color6" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
                                 </button>
                             </div>
                         </div>

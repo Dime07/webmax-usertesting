@@ -241,6 +241,7 @@ export default function Layout_1() {
 
     function getFiturDummy(data) {
         setFiturDummy(data)
+        console.log(fiturDummy)
     }
 
     function getColorGaransi(data){
@@ -258,6 +259,7 @@ export default function Layout_1() {
 
     function getGaransiDummy(data) {
         setGaransiDummy(data)
+        console.log(GaransiDummy)
     }
 
     function getDiskonDummy(data){
@@ -489,14 +491,14 @@ export default function Layout_1() {
       }
 
     //---- modal setting
-      const [modalSettingIsOpen, setSetingIsOpen] = useState(false);
+      const [modalSettingIsOpen, setSettingIsOpen] = useState(false);
 
       function openModalSetting() {
-          setSetingIsOpen(true);
+          setSettingIsOpen(true);
       }
   
       function closeModalSetting(){
-          setSetingIsOpen(false)
+          setSettingIsOpen(false)
       }
 
     //---- modal setting
@@ -544,6 +546,7 @@ export default function Layout_1() {
                 isOpen={modalWritingIsOpen}
                 onRequestClose={closeModalWriting}
                 style={customStyles}
+                ariaHideApp={false}
                 contentLabel="Example Modal"
                 >
                     <ModalWriting copywriting={copyWriting} fitur={fiturDummy} garansi={GaransiDummy}/>
@@ -556,6 +559,7 @@ export default function Layout_1() {
                     isOpen={modalHeroIsOpen}
                     onRequestClose={closeModalHero}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >
                     <ModalHero  sendDummy={getHeroDummy} mainColor={mainColor} sendImage={getImageHero} sendBg={getBgHero}/>
@@ -572,6 +576,7 @@ export default function Layout_1() {
                     isOpen={modalSolusiIsOpen}
                     onRequestClose={closeModalSolusi}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >  
                     <ModalSolusi sendDummy={getSolusiDummy} mainColor={mainColor}/>
@@ -588,6 +593,7 @@ export default function Layout_1() {
                     isOpen={modalVideoIsOpen}
                     onRequestClose={closeModalVideo}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >  
                     <ModalVideo mainColor={mainColor} sendDummy={getColorVideo} sendVideo={getVideo}/>
@@ -604,6 +610,7 @@ export default function Layout_1() {
                     isOpen={modalFiturIsOpen}
                     onRequestClose={closeModalFitur}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >  
                     <ModalFitur sendDummy={getColorFitur} sendInputDummy={getFiturDummy} sendImage={getImageFitur} mainColor={mainColor}/>
@@ -620,6 +627,7 @@ export default function Layout_1() {
                     isOpen={modalTestimoniIsOpen}
                     onRequestClose={closeModalTestimoni}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >  
                     <ModalTestimoni mainColor={mainColor} sendDummy={getTestimoniColor} />
@@ -636,6 +644,7 @@ export default function Layout_1() {
                     isOpen={modalGaransiIsOpen}
                     onRequestClose={closeModalGaransi}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >  
                     <ModalGaransi sendDummy={getColorGaransi} sendInputDummy={getGaransiDummy} sendImage={getImageGaransi} mainColor={mainColor}/>
@@ -652,6 +661,7 @@ export default function Layout_1() {
                     isOpen={modalDiskonIsOpen}
                     onRequestClose={closeModalDiskon}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >
                     <ModalDiskon sendDummy={getDiskonDummy} sendImage={getImageDiskon} mainColor={mainColor}/>
@@ -667,6 +677,7 @@ export default function Layout_1() {
                     isOpen={modalCTAIsOpen}
                     onRequestClose={closeModalCTA}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >
                     <ModalCTA sendDummy={getCTADummy} sendImage={getImageCTA} mainColor={mainColor}/>
@@ -682,6 +693,7 @@ export default function Layout_1() {
                     isOpen={modalFooterIsOpen}
                     onRequestClose={closeModalFooter}
                     style={customStyles}
+                    ariaHideApp={false}
                     contentLabel="Example Modal"
                 >
                     <ModalFooter sendDummy={getFooterDummy} mainColor={mainColor}/>

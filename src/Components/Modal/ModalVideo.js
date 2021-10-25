@@ -53,17 +53,17 @@ export default function ModalVideo({mainColor, sendDummy, sendVideo}) {
                             Warna Background
                         </label>
                         <div className="list-warna flex">
-                            <div id="color1" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
-                            </div>
-                            <div id="color2" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
-                            </div>
-                            <div id="color3" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
-                            </div>
-                            <div id="color4" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
-                            </div>
-                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            <button id="color1" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl" style={{backgroundColor : mainColor.warna1}}>   
                             </button>
-                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
+                            <button id="color2" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna2}}>   
+                            </button>
+                            <button id="color3" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna3}}>   
+                            </button>
+                            <button id="color4" onClick={(e) => GetColorBackground(e)} className="button-color rounded-2xl ml-3" style={{backgroundColor : mainColor.warna4}}>   
+                            </button>
+                            <button id="color5" onClick={(e) => GetColorBackground(e)} className="button-color bg-white rounded-2xl ml-3" >   
+                            </button>
+                            <button id="color6" onClick={(e) => GetColorBackground(e)} className="button-color bg-black rounded-2xl ml-3" >   
                             </button>
                         </div>
                     </div>

@@ -6,15 +6,15 @@ import logo_bakery from "../../Assets/Images/RumahBakery.png"
 
 
 export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
-    const [font, setfont] = useState();
-    const [logo, setlogo] = useState();
-
-    const [warnaDasar, setWarnaDasar] = useState({
+    const[warnaDasar, setWarnaDasar] = useState({
         warna1 : '#0000FF',
         warna2 : '#00FF00',
         warna3 : '#FF007F',
         warna4 : '#6F00FF'
     });
+
+    const[font, setfont] = useState("Poppins");
+    const[logo, setlogo] = useState(logo_bakery);
 
     function previewimg(){
         let imgHero = document.getElementById("imgHero");
