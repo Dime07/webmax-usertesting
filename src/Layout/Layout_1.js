@@ -491,14 +491,14 @@ export default function Layout_1() {
       }
 
     //---- modal setting
-      const [modalSettingIsOpen, setSettingIsOpen] = useState(false);
+      const [modalSettingIsOpen, setSetingIsOpen] = useState(false);
 
       function openModalSetting() {
-          setSettingIsOpen(true);
+          setSetingIsOpen(true);
       }
   
       function closeModalSetting(){
-          setSettingIsOpen(false)
+          setSetingIsOpen(false)
       }
 
     //---- modal setting
