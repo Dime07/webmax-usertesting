@@ -57,7 +57,7 @@ export default function ModalSetting({sendDataColor, sendDataFont, sendLogo}) {
     function kirimdata(){
         sendDataColor(warnaDasar)
         sendDataFont(font)
-        sendLogo(logo)
+        // sendLogo(logo)
     }
 
     function emptyImage(e){
