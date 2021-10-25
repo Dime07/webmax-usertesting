@@ -45,7 +45,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero{
+  .hero-wrap{
     padding: 40px;
   }
   .hero .hero-title{
@@ -55,7 +55,7 @@
 }
 
 @media (max-width: 350px) {
-  .hero{
+  .hero-wrap{
     padding: 20px;
   }
   .hero .hero-title{
