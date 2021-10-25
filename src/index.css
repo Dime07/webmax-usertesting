@@ -23,13 +23,13 @@
 .button-setting-div{
   position: absolute;
   left: 25px;
-  top: 25px;
+  top: 75px;
 }
 
 .button-writing-div{
   position: absolute;
   left: 25px;
-  top: 75px;
+  top: 25px;
 }
 
 

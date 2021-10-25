@@ -241,7 +241,6 @@ export default function Layout_1() {
 
     function getFiturDummy(data) {
         setFiturDummy(data)
-        console.log(fiturDummy)
     }
 
     function getColorGaransi(data){
@@ -259,7 +258,6 @@ export default function Layout_1() {
 
     function getGaransiDummy(data) {
         setGaransiDummy(data)
-        console.log(GaransiDummy)
     }
 
     function getDiskonDummy(data){

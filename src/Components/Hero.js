@@ -5,7 +5,6 @@ import heroImg from "../Assets/Images/hero-img.png"
 
 export default function Hero({headercolor, konten, dataDummy,url,bg}) {
 
-    console.log(dataDummy)
     return(
         <div className="hero" >
             {bg === undefined && (
